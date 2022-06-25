@@ -17,13 +17,26 @@ public class Stack {
         newNode.next = head;
         head = newNode;
     }
+    public static int pop() {
+        if (isEmpty()) {
+            return -1;
+        }
+        int top = head.data;
+        head = head.next;
+        return top;
+    }
+    public static int peek() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return head.data;
 
+    }
     public void displayStack() {
         Node current = head;
         while (current != null) {
-            System.out.println("->" + current.data);
+            System.out.println(" -> " + current.data);
             current = current.next;
         }
-
     }
 }

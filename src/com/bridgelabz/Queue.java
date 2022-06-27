@@ -22,7 +22,6 @@ public class Queue {
         tail = newNode;
 
     }
-
     public void displayQueue() {
         Node currentNode = head;
         while (currentNode != null) {
@@ -31,6 +30,28 @@ public class Queue {
         }
     }
 
+    // dequeue
+    public static int remove() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        int front = head.data;
+
+        if (head == tail) {
+            tail = null;
+        }
+        head = head.next;
+        return front;
+    }
+
+    public static int peek() {
+        if (isEmpty()) {
+            System.out.println("Empty queue");
+            return -1;
+        }
+        return head.data;
+    }
 
     public static void main(String[] args) {
         Queue queue = new Queue();
@@ -39,7 +60,16 @@ public class Queue {
         queue.add(30);
         queue.add(56);
         queue.displayQueue();
-       
+        System.out.println();
+
+
+        while (!queue.isEmpty()) {
+            System.out.println("Elements at peek in the queue is " + queue.peek());
+            System.out.println("Remove element from queue is " + queue.remove());
+            queue.displayQueue();
+            System.out.println();
+        }
 
     }
 }
+
